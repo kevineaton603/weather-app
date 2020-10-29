@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import "./App.css";
-import useGeoLocation from "./hooks/use-geolocation";
-import useWeatherStore from "./store/use-weather-store";
-import { UnitProvider } from "./provider/unit-provider";
-import CurrentWeather from "./components/current-weather";
-import UnitSwitchButton from "./components/UnitSwitchButton";
-import FiveDayForecast from "./components/five-day-forecast";
-import Layout from "./components/layout";
+import React, { useEffect } from 'react';
+import './App.css';
+import useGeoLocation from './hooks/use-geolocation';
+import useWeatherStore from './store/use-weather-store';
+import { UnitProvider } from './provider/unit-provider';
+import CurrentWeather from './components/current-weather';
+import UnitSwitchButton from './components/UnitSwitchButton';
+import FiveDayForecast from './components/five-day-forecast';
+import Layout from './components/layout';
 
 const App = () => {
   const { position } = useGeoLocation({});
@@ -20,14 +20,12 @@ const App = () => {
     }
   }, [fetchCurrentWeather, fetchFiveDayForecast, position]);
 
-  const Header = () => {
-    return (
-      <React.Fragment>
-        <h1 style={{ flexGrow: 1 }}>Weather App</h1>
-        <UnitSwitchButton />
-      </React.Fragment>
-    );
-  };
+  const Header = () => (
+    <>
+      <h1 style={{ flexGrow: 1 }}>Weather App</h1>
+      <UnitSwitchButton />
+    </>
+  );
 
   return (
     <UnitProvider>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 
 interface IUseGeoLocationConfig {
   options?: PositionOptions;
@@ -12,14 +12,14 @@ const useGeoLocation = ({ options }: IUseGeoLocationConfig) => {
   const onSuccess = useCallback(
     (p: Position) => {
       if (
-        p.coords.latitude.toFixed(2) !== position?.coords.latitude.toFixed(2) &&
-        p.coords.longitude.toFixed(2) !== position?.coords.longitude.toFixed(2)
+        p.coords.latitude.toFixed(2) !== position?.coords.latitude.toFixed(2)
+        && p.coords.longitude.toFixed(2) !== position?.coords.longitude.toFixed(2)
       ) {
         setPosition(p);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [position?.coords.latitude, position?.coords.longitude]
+    [position?.coords.latitude, position?.coords.longitude],
   );
 
   const onFailure = useCallback((pe: PositionError) => {
@@ -28,14 +28,12 @@ const useGeoLocation = ({ options }: IUseGeoLocationConfig) => {
 
   useEffect(() => {
     console.log(options, watchId);
-    if ("geolocation" in navigator && watchId === 0) {
+    if ('geolocation' in navigator && watchId === 0) {
       setWatchId(
-        navigator.geolocation.watchPosition(onSuccess, onFailure, options)
+        navigator.geolocation.watchPosition(onSuccess, onFailure, options),
       );
     }
-    return () => {
-      return navigator.geolocation.clearWatch(watchId);
-    };
+    return () => navigator.geolocation.clearWatch(watchId);
   }, [onFailure, onSuccess, options, watchId]);
 
   return {

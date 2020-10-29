@@ -10,12 +10,8 @@ import Layout from "./components/layout";
 
 const App = () => {
   const { position } = useGeoLocation({});
-  const fetchCurrentWeather = useWeatherStore(
-    (state) => state.fetchCurrentWeather
-  );
-  const fetchFiveDayForecast = useWeatherStore(
-    (state) => state.fetchFiveDayForecast
-  );
+  const fetchCurrentWeather = useWeatherStore((state) => state.fetchCurrentWeather);
+  const fetchFiveDayForecast = useWeatherStore((state) => state.fetchFiveDayForecast);
 
   useEffect(() => {
     if (position !== undefined) {

@@ -18,6 +18,7 @@ const useGeoLocation = ({ options }: IUseGeoLocationConfig) => {
         setPosition(p);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [position?.coords.latitude, position?.coords.longitude]
   );
 

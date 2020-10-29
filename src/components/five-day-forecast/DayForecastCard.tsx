@@ -1,11 +1,9 @@
 import React, {
   FunctionComponent,
   useContext,
-  useEffect,
-  useState,
-} from "react";
-import UnitContext from "../../provider/unit-provider";
-import { IFiveDayForecastResponseListItem } from "../../data-source/weather";
+} from 'react';
+import UnitContext from '../../provider/unit-provider';
+import { IFiveDayForecastResponseListItem } from '../../data-source/weather';
 
 const DayForecastCard: FunctionComponent<{
   forecasts: IFiveDayForecastResponseListItem[];
@@ -16,12 +14,12 @@ const DayForecastCard: FunctionComponent<{
   return (
     <div
       style={{
-        height: "275px",
-        width: "250px",
-        margin: "5px",
-        backgroundColor: "whitesmoke",
+        height: '275px',
+        width: '250px',
+        margin: '5px',
+        backgroundColor: 'whitesmoke',
         boxShadow:
-          "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+          '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
       }}
     >
       <div>{forecast.dt_txt}</div>

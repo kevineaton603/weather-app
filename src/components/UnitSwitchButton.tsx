@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import UnitContext, { Unit } from "../provider/unit-provider";
+import React, { useContext } from 'react';
+import UnitContext, { Unit } from '../provider/unit-provider';
 
 const UnitSwitchButton = () => {
   const { unit, setUnit } = useContext(UnitContext);
@@ -11,9 +11,11 @@ const UnitSwitchButton = () => {
       case Unit.CELSIUS:
         setUnit(Unit.FAHRENHEIT);
         break;
+      default:
+        break;
     }
   };
-  return <button onClick={toggle}>Switch Units</button>;
+  return <button onClick={toggle} type="button">Switch Units</button>;
 };
 
 export default UnitSwitchButton;
